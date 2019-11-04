@@ -28,6 +28,7 @@
     "require": {
         "ext-json": "*",
         "php": ">=7.0",
+        "composer-plugin-api": "^1.0.0",
         "oomphinc/composer-installers-extender": "^1.1",
         "davidbarratt/custom-installer": "1.0.*@dev"
     },
