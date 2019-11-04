@@ -28,10 +28,8 @@
     "require": {
         "ext-json": "*",
         "php": ">=7.0",
-        "composer/installers": "~1.0",
         "oomphinc/composer-installers-extender": "^1.1",
-        "davidbarratt/custom-installer": "1.0.*@dev",
-        "composer-plugin-api": "^1.0.0"
+        "davidbarratt/custom-installer": "1.0.*@dev"
     },
     "require-dev": {
         "composer/composer": "^1.5.0",
@@ -45,6 +43,7 @@
         }
     },
     "extra": {
+        "class": "NREL\\Docker4Drupal\\Plugin",
         "installer-name": "docker4drupal",
         "installer-types": [
             "docker4drupal-framework"
