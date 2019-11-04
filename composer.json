@@ -1,0 +1,56 @@
+{
+    "name": "nrel/docker4drupal",
+    "description": "Composer Plugin to prepare local Drupal development environment for Docker.",
+    "type": "composer-plugin",
+    "keywords": ["Drupal", "Development", "Docker"],
+    "homepage": "https://github.com/NREL/docker4drupal",
+    "license": "GPL-2.0-or-later",
+        "authors": [
+        {
+            "name": "Damon Haley (dhaley)",
+            "email": "damon.haley@nrel.gov",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Shaun Laws (slaws)",
+            "email": "shaun.laws@nrel.gov",
+            "role": "Co-maintainer"
+        },
+                {
+            "name": "Christian Modern (cmodern)",
+            "email": "christian.modern@nrel.gov",
+            "role": "Co-maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/NREL/docker4drupal/issues"
+    },
+    "require": {
+        "ext-json": "*",
+        "php": ">=7.0",
+        "composer/installers": "~1.0",
+        "oomphinc/composer-installers-extender": "^1.1",
+        "davidbarratt/custom-installer": "1.0.*@dev",
+        "composer-plugin-api": "^1.0.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.5.0",
+        "phpunit/phpunit": "^4.8.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "NREL\\Docker4Drupal\\": "src/"
+        }
+    },
+    "extra": {
+        "installer-name": "docker4drupal",
+        "installer-types": [
+            "docker4drupal-framework"
+        ],
+        "installer-paths": {
+            "./": ["type:docker4drupal-framework"]
+        }
+    }
+}
