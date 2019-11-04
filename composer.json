@@ -1,7 +1,7 @@
 {
     "name": "nrel/docker4drupal",
     "description": "Composer Plugin to prepare local Drupal development environment for Docker.",
-    "type": "composer-plugin",
+    "type": "communications-docker-framework",
     "keywords": ["Drupal", "Development", "Docker"],
     "homepage": "https://github.com/NREL/docker4drupal",
     "license": "GPL-2.0-or-later",
@@ -28,7 +28,6 @@
     "require": {
         "ext-json": "*",
         "php": ">=7.0",
-        "composer-plugin-api": "^1.0.0",
         "oomphinc/composer-installers-extender": "^1.1",
         "davidbarratt/custom-installer": "1.0.*@dev"
     },
@@ -38,13 +37,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "NREL\\Docker4Drupal\\": "src/"
-        }
-    },
     "extra": {
-        "class": "NREL\\Docker4Drupal\\Plugin",
         "installer-name": "docker4drupal",
         "installer-types": [
             "docker4drupal-framework"
