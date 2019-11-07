@@ -2,6 +2,9 @@ include .env
 
 default: up
 
+COMPOSE_PROJECT_NAME=$(PROJECT_NAME)
+PROJECT_BASE_URL=$(PROJECT_NAME).docker.localhost
+
 COMPOSER_ROOT ?= /var/www/html
 DRUPAL_ROOT ?= /var/www/html/web
 
@@ -19,8 +22,8 @@ endif
 .PHONY: up
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose pull
-	docker-compose up -d --remove-orphans
+	docker-compose -p $(PROJECT_NAME) pull 
+	docker-compose -p $(PROJECT_NAME) up -d --remove-orphans 
 
 ## down	:	Stop containers.
 .PHONY: down
@@ -30,13 +33,13 @@ down: stop
 .PHONY: start
 start:
 	@echo "Starting containers for $(PROJECT_NAME) from where you left off..."
-	@docker-compose start
+	@docker-compose -p $(PROJECT_NAME) start 
 
 ## stop	:	Stop containers.
 .PHONY: stop
 stop:
 	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker-compose stop
+	@docker-compose -p $(PROJECT_NAME) stop 
 
 ## prune	:	Remove containers and their volumes.
 ##		You can optionally pass an argument with the service name to prune single container
@@ -45,7 +48,7 @@ stop:
 .PHONY: prune
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose down -v $(filter-out $@,$(MAKECMDGOALS))
+	@docker-compose -p $(PROJECT_NAME) down -v $(filter-out $@,$(MAKECMDGOALS)) 
 
 ## ps	:	List running containers.
 .PHONY: ps
@@ -77,7 +80,7 @@ drush:
 ##		logs nginx php	: View `nginx` and `php` containers logs.
 .PHONY: logs
 logs:
-	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
+	@docker-compose -p $(PROJECT_NAME) logs -f $(filter-out $@,$(MAKECMDGOALS)) 
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
